@@ -73,6 +73,8 @@ const taskResolvers = {
 
       if (conflictHandler.hasConflict(task, clientData)) {
         const { response } = conflictHandler.resolveOnClient(task, clientData)
+        // Should be part of the API 
+        response.returnType = "Task";
         return response
       }
       conflictHandler.nextState(clientData)
