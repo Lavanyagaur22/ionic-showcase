@@ -1,5 +1,5 @@
 const { pubSub } = require('../subscriptions')
-const { conflictHandler } = require("@aerogear/voyager-conflicts")
+const { conflictHandler } = require("offix-conflicts-server")
 const { TASK_ADDED, TASK_DELETED, TASK_UPDATED } = require("./subscriptions")
 
 const typeDefs = `
@@ -71,7 +71,7 @@ const taskResolvers = {
         throw new Error(`Invalid ID for task object: ${clientData.id}`);
       }
 
-      if (conflictHandler.hasConflict(task, clientData)) {
+      if (conflictHandler.checkForConflict(task, clientData)) {
         const { response } = conflictHandler.resolveOnClient(task, clientData)
         // Should be part of the API 
         response.returnType = "Task";
