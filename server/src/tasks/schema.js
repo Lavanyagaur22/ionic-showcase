@@ -71,13 +71,7 @@ const taskResolvers = {
         throw new Error(`Invalid ID for task object: ${clientData.id}`);
       }
 
-      if (conflictHandler.checkForConflict(task, clientData)) {
-        const { response } = conflictHandler.resolveOnClient(task, clientData)
-        // Should be part of the API 
-        response.returnType = "Task";
-        return response
-      }
-      conflictHandler.nextState(clientData)
+      conflictHandler.checkForConflict(task, clientData);
 
       const update = await context.db('tasks').update(clientData)
         .where({
