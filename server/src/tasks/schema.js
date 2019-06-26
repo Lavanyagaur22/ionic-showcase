@@ -71,7 +71,10 @@ const taskResolvers = {
         throw new Error(`Invalid ID for task object: ${clientData.id}`);
       }
 
-      conflictHandler.checkForConflict(task, clientData);
+      const conflictError = conflictHandler.checkForConflict(task, clientData);
+      if(conflictError){
+        throw conflictError;
+      }
 
       const update = await context.db('tasks').update(clientData)
         .where({
