@@ -48,7 +48,7 @@ export class ItemService {
       fetchPolicy: 'cache-first',
       errorPolicy: 'none'
     });
-    // subscribeToMoreHelper(getTasks, subscriptionOptions);
+    subscribeToMoreHelper(getTasks, subscriptionOptions);
     return getTasks;
   }
 
