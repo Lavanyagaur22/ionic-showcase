@@ -55,7 +55,14 @@ export class UpdateItemPage extends OfflineNotifier implements OnInit {
       this.goBack();
     }).catch((error) => {
       this.handleOfflineMutation(error);
-      this.goBack();
+      if (error.networkError && error.networkError.localConflict) {
+        // Developers can merge data, but in this case we are simply 
+        // providing fresh one.
+        this.presentToast('Local data got outdated. Please try again!');
+        this.item = error.networkError.base;
+      } else {
+        this.goBack();
+      }
     });
   }
 }
