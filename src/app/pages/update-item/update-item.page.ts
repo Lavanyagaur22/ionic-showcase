@@ -30,12 +30,16 @@ export class UpdateItemPage extends OfflineNotifier implements OnInit {
     this.route.params.subscribe(
       param => {
         this.item = param as Task;
-        this.edit_item_form = this.formBuilder.group({
-          title: new FormControl(this.item.title, Validators.required),
-          description: new FormControl(this.item.description, Validators.required)
-        });
+        this.buildForm();
       }
     );
+  }
+
+  private buildForm() {
+    this.edit_item_form = this.formBuilder.group({
+      title: new FormControl(this.item.title, Validators.required),
+      description: new FormControl(this.item.description, Validators.required)
+    });
   }
 
   goBack() {
@@ -60,6 +64,7 @@ export class UpdateItemPage extends OfflineNotifier implements OnInit {
         // providing fresh one.
         this.presentToast('Local data got outdated. Please try again!');
         this.item = error.networkError.base;
+        this.buildForm();
       } else {
         this.goBack();
       }
