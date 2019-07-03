@@ -1700,9 +1700,9 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.1"
     object-path "^0.11.4"
 
-graphql@14.4.0:
-  version "14.4.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.4.0.tgz#e97086acfc0338e4fdc8f7dba519c6b8a6badfd9"
+graphql@14.4.2:
+  version "14.4.2"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.4.2.tgz#553a7d546d524663eda49ed6df77577be3203ae3"
   dependencies:
     iterall "^1.2.2"
 
@@ -2181,9 +2181,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-knex@0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.18.0.tgz#10ff3c719badfeaeabb5db806c9a63da7f4ef2fd"
+knex@0.18.2:
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.18.2.tgz#9f9c0643e3e5cc10d88912439fdfceacd913e1d3"
   dependencies:
     bluebird "^3.5.5"
     colorette "1.0.8"
